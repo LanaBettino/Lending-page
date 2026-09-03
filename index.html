@@ -1144,6 +1144,180 @@
         font-size: 1.5rem;
       }
     }
+
+
+    .clickable-featured {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    .clickable-featured:focus-visible {
+      outline: 3px solid #3b8aff;
+      outline-offset: 4px;
+    }
+    .clickable-featured::after {
+      content: '↗';
+      position: absolute;
+      top: 0.8rem;
+      right: 0.8rem;
+      z-index: 4;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10,15,30,0.72);
+      color: white;
+      font-weight: 700;
+      opacity: 0;
+      transform: translateY(-5px);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(6px);
+    }
+    .clickable-featured:hover::after,
+    .clickable-featured:focus-visible::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- MOBILE-FIRST IMPROVEMENTS ---- */
+    html { overflow-x: hidden; }
+    body { width: 100%; }
+
+    @media (max-width: 820px) {
+      body { padding: 0.75rem; }
+      .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 1.5rem 1.1rem;
+        border-radius: 1.5rem;
+      }
+      .hero {
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      .hero-text h2 { font-size: clamp(1.75rem, 7vw, 2.3rem); }
+      .hero-text p { font-size: 0.95rem; }
+      .media-grid { grid-template-columns: 1fr 1fr; }
+      .financial-job-section,
+      .about-rates,
+      .contact-section,
+      .subscribe-section {
+        width: 100%;
+      }
+      .financial-job-section { padding: 1.3rem; }
+      .financial-job-content { min-width: 0; width: 100%; }
+      .about-rates { padding: 1.3rem; }
+      .contact-section { padding: 1.3rem; }
+      .subscribe-section { padding: 1.3rem; }
+      .contact-row { flex-wrap: wrap; }
+    }
+
+    @media (max-width: 500px) {
+      body { padding: 0.35rem; }
+      .container {
+        padding: 1.1rem 0.85rem;
+        border-radius: 1.15rem;
+      }
+      .header {
+        margin-bottom: 1.6rem;
+        padding-bottom: 1rem;
+      }
+      .logo h1 { font-size: 1.55rem; }
+      .logo .tagline { font-size: 0.75rem; }
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 0.5rem;
+      }
+      .nav-links a { font-size: 0.82rem; }
+      .nav-links a.social-link { width: 34px; height: 34px; }
+      .hero-text h2 { font-size: 1.7rem; }
+      .hero-text p { font-size: 0.9rem; line-height: 1.6; }
+      .social-icons a { width: 42px; height: 42px; font-size: 1.1rem; }
+      .stats-row {
+        padding: 1.1rem;
+        margin-bottom: 2rem;
+      }
+      .stat-item .number { font-size: 1.55rem; }
+      .media-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+      .media-item,
+      .media-item.size-2x,
+      .media-item.size-wide {
+        min-height: 210px;
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+      .media-section { margin-bottom: 2rem; }
+      .media-section h3 { font-size: 1.2rem; }
+      .financial-job-section {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .financial-job-image {
+        width: 100%;
+        max-width: 260px;
+        margin: 0 auto;
+      }
+      .financial-job-content h2 {
+        font-size: 1.35rem;
+        flex-wrap: wrap;
+      }
+      .financial-job-content ul {
+        padding-left: 1rem;
+      }
+      .rates-card .rate-item {
+        gap: 0.75rem;
+        align-items: flex-start;
+      }
+      .rates-card .price { white-space: nowrap; }
+      .subscribe-form {
+        width: 100%;
+        flex-direction: column;
+      }
+      .subscribe-form input,
+      .subscribe-form button { width: 100%; }
+      .contact-form button { width: 100%; }
+    }
+
+.services-list {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid #e6ebf3;
+}
+
+.services-list h4 {
+  margin: 0 0 0.6rem;
+  font-size: 0.9rem;
+  color: #1a2b4a;
+}
+
+.services-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.services-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.82rem;
+  color: #5a6b8a;
+}
+
+.services-list li i {
+  color: #1a6be0;
+  font-size: 0.7rem;
+}
+
+
+
   </style>
 </head>
 <body>
@@ -1181,7 +1355,7 @@
       <div style="margin-top: 0.4rem; font-size: 0.8rem; color: #8892a8;">Business &amp; Career Creator</div>
     </div>
     <div class="hero-text animate-on-scroll visible delay-2">
-      <h2>Welcome to my <span class="highlight">Media Kit</span></h2>
+      <h2>Welcome to Our <span class="highlight">Media Kit</span></h2>
       <p>We are a marketing agency that designs and executes high-impact campaigns for corporates and large organizations. Built for impact—not just visibility—we create content that delivers real exposure and measurable results.</p>
       <div class="social-icons">
         <a href="https://www.instagram.com/lromedia.offlicial?igsh=MTc2bjlwM2d3bmY4bg==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -1219,56 +1393,29 @@
     <h3><i class="fas fa-photo-video"></i> Featured content</h3>
     <div class="media-grid">
 
-      <!-- 1. VIDEO 1 - Featured -->
-      <div class="media-item size-2x animate-on-scroll scale-up delay-4">
-        <video muted loop playsinline>
-          <source src="video1.mp4" type="video/mp4" />
-        </video>
-        <span class="play-btn pulse" onclick="togglePlay(this)">
-          <i class="fas fa-play"></i>
-        </span>
-        <span class="badge featured">🎬 Featured</span>
-        <div class="overlay"><span>video1.mp4 · Featured Video</span></div>
-      </div>
+      <!-- Featured image 1: change the link/content in featured1.html later -->
+      <a class="media-item size-2x clickable-featured animate-on-scroll scale-up delay-4"
+         href="featured1.html" aria-label="Open featured content 1">
+        <img src="picture1.jpeg" alt="LRO Media Brand Portfolio" />
+        <span class="badge featured">✨ Featured</span>
+        <div class="overlay"><span>Brand Portfolio · Click to view</span></div>
+      </a>
 
-      <!-- 2. VIDEO 2 -->
-      <div class="media-item animate-on-scroll scale-up delay-5">
-        <video muted loop playsinline>
-          <source src="video2.mp4" type="video/mp4" />
-        </video>
-        <span class="play-btn pulse" onclick="togglePlay(this)">
-          <i class="fas fa-play"></i>
-        </span>
-        <span class="badge video">🎬 Video</span>
-        <div class="overlay"><span>video2.mp4 · Video 2</span></div>
-      </div>
+      <!-- Featured image 2: change the link/content in featured2.html later -->
+      <a class="media-item clickable-featured animate-on-scroll scale-up delay-5"
+         href="featured2.html" aria-label="Open featured content 2">
+        <img src="picture2.jpeg" alt="LRO Media Business Portfolio" />
+        <span class="badge equipment">📷 Featured</span>
+        <div class="overlay"><span>Business Portfolio · Click to view</span></div>
+      </a>
 
-      <!-- 3. EQUIPMENT 1 -->
-      <div class="media-item animate-on-scroll scale-up delay-5">
-        <img src="picture1.jpeg" alt="Equipment 1" />
-        <span class="badge equipment">📷 Gear</span>
-        <div class="overlay"><span>Equipment · Camera gear</span></div>
-      </div>
-
-      <!-- 4. EQUIPMENT 2 -->
-      <div class="media-item animate-on-scroll scale-up delay-6">
-        <img src="picture2.jpeg" alt="Equipment 2" />
-        <span class="badge equipment">🎙️ Gear</span>
-        <div class="overlay"><span>Equipment · Audio gear</span></div>
-      </div>
-
-      <!-- 5. EQUIPMENT 3 -->
-      <div class="media-item animate-on-scroll scale-up delay-6">
-        <img src="picture3.jpeg" alt="Equipment 3" />
-        <span class="badge equipment">⚙️ Gear</span>
-        <div class="overlay"><span>Equipment · Studio setup</span></div>
-      </div>
-
-      <!-- 6. Empty slot -->
-      <div class="media-item" style="background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.05);">
-        <span style="color: rgba(255,255,255,0.15); font-size: 2rem;"><i class="fas fa-plus-circle"></i></span>
-        <span class="label-text" style="color: rgba(255,255,255,0.15);">More coming soon</span>
-      </div>
+      <!-- Featured image 3: change the link/content in featured3.html later -->
+      <a class="media-item clickable-featured animate-on-scroll scale-up delay-6"
+         href="featured3.html" aria-label="Open featured content 3">
+        <img src="picture3.jpeg" alt="LRO Media Brand Portfolio" />
+        <span class="badge equipment">📁 Featured</span>
+        <div class="overlay"><span>Portfolio · Click to view</span></div>
+      </a>
 
     </div>
   </div>
@@ -1308,8 +1455,8 @@
   <!-- ABOUT + RATES -->
   <div class="about-rates animate-on-scroll" id="aboutSection">
     <div class="about-text">
-      <h3><i class="fas fa-user-circle"></i> About me</h3>
-      <p>Welcome to my media kit! I'm adminlromedia, a business &amp; career creator. I make content on Instagram, TikTok, YouTube, Twitter, Twitch, and Facebook. I'd love to work with you! Check out my stats below.</p>
+      <h3><i class="fas fa-user-circle"></i> About us</h3>
+      <p>LRO Media started with a simple idea — that good work deserves to be seen, understood and remembered. What began as a small creative vision has grown into a company built around people, ideas and the businesses behind them. We’re still growing, still learning.</p>
       <div class="platforms">
         <span><i class="fab fa-instagram"></i> Instagram</span>
         <span><i class="fab fa-tiktok"></i> TikTok</span>
@@ -1319,27 +1466,32 @@
         <span><i class="fab fa-facebook-f"></i> Facebook</span>
       </div>
     </div>
-    <div class="rates-card">
-      <h3><i class="fas fa-tag"></i> Rates card</h3>
-      <div class="rate-item">
-        <span>Instagram In-feed post</span>
-        <span class="price">R500</span>
-      </div>
-      <div class="rate-item">
-        <span>Instagram Story</span>
-        <span class="price">R500</span>
-      </div>
-      <div class="rate-item">
-        <span>YouTube integration</span>
-        <span class="price">R750</span>
-      </div>
-      <div class="rate-item">
-        <span>TikTok post</span>
-        <span class="price">R400</span>
-      </div>
-      <div style="margin-top: 0.6rem; font-size: 0.8rem; color: #5a6b8a;">
-        <i class="fas fa-info-circle" style="color: #1a6be0;"></i> Custom packages available
-      </div>
+<div class="rates-card">
+  <h3><i class="fas fa-tag"></i> Rates card</h3>
+
+  <div class="rate-item">
+    <span>Our services &amp; packages</span>
+    <span class="price">R2,000 – R5,000</span>
+  </div>
+
+  <!-- Services included -->
+  <div class="services-list">
+    <h4><i class="fas fa-briefcase"></i> Our Departments</h4>
+    <ul>
+      <li><i class="fas fa-check"></i> Creative Department</li>
+      <li><i class="fas fa-check"></i> Social Media Department</li>
+      <li><i class="fas fa-check"></i> Influencer Department</li>
+      <li><i class="fas fa-check"></i> Business Development Department</li>
+      <li><i class="fas fa-check"></i> Web Development Department</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 0.6rem; font-size: 0.8rem; color: #5a6b8a;">
+    <i class="fas fa-info-circle" style="color: #1a6be0;"></i>
+    Packages are available within this range
+  </div>
+</div>
+
     </div>
   </div>
 
@@ -1347,7 +1499,7 @@
   <div class="subscribe-section animate-on-scroll" id="subscribeSection">
     <div class="text">
       <h3>Subscribe to adminlromedia</h3>
-      <p>Sign up to get exclusive email updates directly from me.</p>
+      <p>Sign up to get exclusive email updates directly from us.</p>
     </div>
     <form class="subscribe-form" onsubmit="handleSubscribe(event)">
       <input type="text" id="firstName" placeholder="First Name" required />
@@ -1359,8 +1511,8 @@
   <!-- CONTACT -->
   <div class="contact-section animate-on-scroll" id="contactSection">
     <div>
-      <h3><i class="fas fa-handshake"></i> Collaborate with me!</h3>
-      <p>Send me any additional project details through this contact form. I'm excited to work with you!</p>
+      <h3><i class="fas fa-handshake"></i> Collaborate with us!</h3>
+      <p>Send us any additional project details through this contact form. We’re excited to work with you!</p>
       <div style="margin-top: 1rem; display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
         <span style="font-weight: 600; color: #e8edf5;"><i class="fas fa-envelope" style="color: #1a6be0;"></i> adminlromedia@gmail.com</span>
       </div>
@@ -1369,8 +1521,8 @@
       <input type="text" id="contactName" placeholder="Your name" required />
       <input type="email" id="contactEmail" placeholder="Your email" required />
       <input type="text" id="contactProject" placeholder="Project type" />
-      <textarea id="contactMessage" placeholder="Tell me about your project..."></textarea>
-      <button type="submit" class="btn-work"><i class="fas fa-paper-plane"></i> Work with me</button>
+      <textarea id="contactMessage" placeholder="Tell us about your project..."></textarea>
+      <button type="submit" class="btn-work"><i class="fas fa-paper-plane"></i> Work with us</button>
     </form>
   </div>
 
@@ -1494,7 +1646,7 @@
     );
     window.location.href = `mailto:adminlromedia@gmail.com?subject=${subject}&body=${body}`;
 
-    showToast(`📧 Thanks ${name}! I'll get back to you soon!`, 'fa-handshake');
+    showToast(`📧 Thanks ${name}! We'll get back to you soon!`, 'fa-handshake');
 
     document.getElementById('contactName').value = '';
     document.getElementById('contactEmail').value = '';
